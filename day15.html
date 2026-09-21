@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Units and Media Queries</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            padding: 20px;
+        }
+        .container {
+            width: 80%;
+            max-width: 600px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: white;
+            border: 2px solid black;
+            border-radius: 10px;
+        }
+        p {
+            font-size: 1.5rem;
+            line-height: 1.6;
+            margin: 15px 0;
+        }
+        h2 {
+            font-family: Georgia, serif;
+            font-size: 2rem;
+            color: darkgreen;
+        }
+        h3 {
+            font-family: "Courier New", monospace;
+            font-size: 1.5rem;
+        }
+        .content {
+            font-family: Verdana, sans-serif;
+            font-size: 1rem;
+        }
+        .grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        .item {
+            background-color: lightblue;
+            padding: 25px;
+            text-align: center;
+            border: 1px solid navy;
+            border-radius: 8px;
+            font-size: 1.2rem;
+        }
+
+        @media (min-width: 768px) {
+            body {
+                background-color: lightyellow;
+            }
+
+            .grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        @media (min-width: 1024px) {
+            body {
+                background-color: lightgreen;
+            }
+
+            .grid {
+                grid-template-columns: repeat(4, 1fr);
+            }
+        }
+        @media (max-width: 767px) {
+            body {
+                background-color: lightcoral;
+            }
+            .container {
+                width: 95%;
+            }
+        }
+    </style>
+</head>
+<body>
+        <div class="container">
+        <h2>Responsive Web Design</h2>
+        <p>
+            This paragraph uses a font size of 1.5rem.
+            Its size is based on the root HTML font size.
+            The layout adjusts according to the screen size.
+        </p>
+        <h3>Different Font Families</h3>
+        <p class="content">
+            This text uses the Verdana font family with a
+            font size of 1rem.
+        </p>
+    </div>
+    <h2>Responsive Grid Layout</h2>
+    <div class="grid">
+        <div class="item">Box 1</div>
+        <div class="item">Box 2</div>
+        <div class="item">Box 3</div>
+        <div class="item">Box 4</div>
+    </div>
+
+</body>
+</html>
