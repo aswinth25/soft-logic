@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Day 6 - HTML Attributes</title>
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <h1 id="top">My HTML Attributes Page</h1>
+
+    <a href="#about">About</a> 
+    <a href="#images">Images</a> 
+    <a href="#contact">Contact</a> 
+    <a href="https://www.google.com" target="_blank">Google</a>
+
+    <hr>
+
+    <!-- About Section -->
+    <h2 id="about">About HTML</h2>
+
+    <p title="HTML stands for HyperText Markup Language">
+        HTML is used to create the structure of webpages.
+    </p>
+
+    <p>
+        Visit
+        <a href="https://www.youtube.com" target="_blank">
+            YouTube
+        </a>
+        to watch video.
+    </p>
+
+    <hr>
+
+    <!-- Image Section -->
+    <h2 id="images">Images</h2>
+
+    <img
+        src="assets/Image_created_with_a_mobile_phone.png"
+        alt="A sample placeholder image"
+        width="300"
+        height="200"
+        title="Sample Image"
+    >
+
+    <br><br>
+
+    <!-- Clickable Image -->
+    <a href="https://www.google.com" target="_blank">
+        <img
+            src="https://via.placeholder.com/200"
+            alt="Clickable image"
+            width="200"
+            height="150"
+        >
+    </a>
+
+    <hr>
+
+    <!-- Relative Link -->
+    <h2>Other Page</h2>
+
+    <a href="about.html">Go to About Page</a>
+
+    <br><br>
+
+    <!-- Download Link -->
+    <a href="sample.pdf" download>Download PDF</a>
+
+    <br><br>
+
+    <!-- Email Link -->
+    <a href="mailto:example@gmail.com">Send Email</a>
+
+    <hr>
+
+    <!-- Form -->
+    <h2 id="contact">Contact Form</h2>
+
+    <form action="/submit" method="post">
+
+        <label for="name">Name:</label>
+        <input
+            type="text"
+            id="name"
+            name="name"
+            placeholder="Enter your name"
+            required
+        >
+
+        <br><br>
+
+        <label for="email">Email:</label>
+        <input
+            type="email"
+            id="email"
+            name="email"
+            placeholder="Enter your email"
+            required
+        >
+
+        <br><br>
+
+        <label for="password">Password:</label>
+        <input
+            type="password"
+            id="password"
+            name="password"
+        >
+
+        <br><br>
+
+        <input type="submit" value="Submit">
+
+    </form>
+
+    <br>
+
+    <a href="#top">Back to Top</a>
+
+</body>
+</html>

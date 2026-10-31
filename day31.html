@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<script>
+
+// 1
+function calculate(a, b, callback) {
+    console.log(callback(a, b));
+}
+function add(x, y) {
+    return x + y;
+}
+calculate(10, 20, add);
+
+// 2. 
+function greetUser(name, callback) {
+    callback(name);
+}
+function welcome(name) {
+    console.log("Welcome " + name + "!");
+}
+greetUser("Aswinth", welcome);
+
+
+// 3.
+function processArray(arr, callback) {
+    console.log(arr.map(callback));
+}
+function double(n) {
+    return n * 2;
+}
+processArray([1, 2, 3, 4], double);
+
+// 4. 
+function findNumber(arr, callback) {
+    console.log(arr.find(callback));
+}
+function isEven(n) {
+    return n % 2 === 0;
+}
+findNumber([1, 3, 6, 8, 9], isEven);
+
+// 5. 
+function removeNegative(arr, callback) {
+    console.log(arr.filter(callback));
+}
+function isPositive(n) {
+    return n >= 0;
+}
+removeNegative([-2, 5, -7, 8, 0], isPositive);
+
+// 6
+function checkEligibility(age, callback) {
+    callback(age);
+}
+function checkVote(age) {
+    console.log(age >= 18
+        ? "Eligible to vote"
+        : "Not eligible to vote");
+}
+checkEligibility(21, checkVote);
+
+</script>
+<body>
+    
+</body>
+</html>

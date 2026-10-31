@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // 1.
+const numbers = () => {
+    for (let i = 1; i <= 10; i++) console.log(i);
+};
+numbers();
+
+// 2. 
+const even = () => {
+    for (let i = 1; i <= 20; i++)
+        if (i % 2 === 0) console.log(i);
+};
+even();
+
+// 3. 
+const odd = () => {
+    for (let i = 1; i <= 20; i++)
+        if (i % 2 !== 0) console.log(i);
+};
+odd();
+
+// 4. 
+const sum = () => {
+    let s = 0;
+    for (let i = 1; i <= 10; i++) s += i;
+    console.log(s);
+};
+sum();
+
+// 5. 
+const table = (n) => {
+    for (let i = 1; i <= 10; i++)
+        console.log(`${n} x ${i} = ${n * i}`);
+};
+table(5);
+
+// 6. 
+const factorial = (n) => {
+    let f = 1;
+    for (let i = 1; i <= n; i++) f *= i;
+    console.log(f);
+};
+factorial(5);
+
+// 7.
+const reverse = (n) => {
+    let r = 0;
+    while (n > 0) {
+        r = r * 10 + n % 10;
+        n = Math.floor(n / 10);
+    }
+    console.log(r);
+};
+reverse(1234);
+
+// 8. 
+const digits = (n) => {
+    let c = 0;
+    do {
+        c++;
+        n = Math.floor(n / 10);
+    } while (n > 0);
+    console.log(c);
+};
+digits(12345);
+
+// 9. 
+const prime = (n) => {
+    let p = n > 1;
+    for (let i = 2; i <= Math.sqrt(n); i++)
+        if (n % i === 0) p = false;
+    console.log(p ? "Prime" : "Not Prime");
+};
+prime(7);
+
+// 10. 
+const fibonacci = (n) => {
+    let a = 0, b = 1;
+    for (let i = 1; i <= n; i++) {
+        console.log(a);
+        [a, b] = [b, a + b];
+    }
+};
+fibonacci(7);
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

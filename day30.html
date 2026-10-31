@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Feedback Form</title>
+</head>
+
+<body>
+
+<h2>Customer Feedback Form</h2>
+
+<form id="form">
+
+    Full Name:
+    <input type="text" id="name" required>
+
+    Email:
+    <input type="email" id="email" required>
+    <br><br>
+
+    Reason:
+    <input type="radio" name="reason" value="Purchase"> Product Purchase
+    <input type="radio" name="reason" value="Support"> Customer Support
+    <input type="radio" name="reason" value="Other"> Other
+    <br><br>
+
+    Satisfaction:
+    <input type="radio" name="satisfaction" value="1"> 1
+    <input type="radio" name="satisfaction" value="2"> 2
+    <input type="radio" name="satisfaction" value="3"> 3
+    <br><br>
+
+    Recommend (0-10):
+    <input type="number" id="recommend" min="0" max="10">
+    <br><br>
+
+    Improve:
+    <input type="checkbox" name="improve" value="Pricing"> Pricing
+    <input type="checkbox" name="improve" value="Website"> Website
+    <input type="checkbox" name="improve" value="Support"> Support
+    <br><br>
+
+    Comments:
+    <textarea id="comments"></textarea>
+    <br><br>
+
+    <button type="submit">Submit</button>
+
+</form>
+
+<p id="msg"></p>
+
+<script>
+
+let form = document.getElementById("form");
+
+form.addEventListener("submit", function(event) {
+
+    event.preventDefault();
+
+    let name = document.getElementById("name").value;
+    let email = document.getElementById("email").value;
+    let recommend = document.getElementById("recommend").value;
+    let comments = document.getElementById("comments").value;
+
+    localStorage.setItem("name", name);
+    localStorage.setItem("email", email);
+    localStorage.setItem("recommend", recommend);
+    localStorage.setItem("comments", comments);
+
+    sessionStorage.setItem("name", name);
+    sessionStorage.setItem("email", email);
+
+    document.getElementById("msg").innerHTML =
+        "Feedback submitted";
+
+});
+
+</script>
+
+</body>
+</html>

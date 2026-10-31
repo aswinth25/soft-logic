@@ -1,0 +1,165 @@
+Day 32 – JavaScript Promises, Async/Await
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Day 32 Assignment</title>
+</head>
+<body>
+    <h2>JavaScript Promises & Async/Await</h2>
+    <p>Press F12 and open Console to see outputs.</p>
+
+<script>
+
+// 1
+new Promise(resolve => {
+    setTimeout(() => resolve("Welcome to JS Promise"), 2000);
+}).then(console.log);
+
+// 2
+new Promise((resolve, reject) => {
+    setTimeout(() => reject("Invalid Data"), 3000);
+}).catch(console.log);
+
+// 3
+function checkNumber(num) {
+    return new Promise((resolve, reject) => {
+        num % 2 !== 0 ? resolve("Odd Number") : reject("Even Number");
+    });
+}
+checkNumber(5).then(console.log).catch(console.log);
+
+// 4
+function checkAge(age) {
+    return new Promise((resolve, reject) => {
+        age >= 18
+            ? resolve("Eligible for Employment")
+            : reject("Not eligible for Employment");
+    });
+}
+checkAge(21).then(console.log).catch(console.log);
+
+// 5
+function sum(a, b) {
+    return new Promise((resolve, reject) => {
+        b < 0 ? reject("b cannot be negative") : resolve(a + b);
+    });
+}
+sum(10, 20).then(console.log).catch(console.log);
+
+// 6
+new Promise(resolve => {
+    console.log("Order placed");
+    setTimeout(() => resolve("Food is ready"), 5000);
+}).then(console.log);
+
+// 7
+function checkString(str) {
+    return new Promise((resolve, reject) => {
+        str.trim().length > 0
+            ? resolve("String contains characters")
+            : reject("String is empty");
+    });
+}
+checkString("Hello").then(console.log).catch(console.log);
+
+// 8
+function findEven(num) {
+    return new Promise((resolve, reject) => {
+        num % 2 === 0 ? resolve("Even Number") : reject("Odd Number");
+    });
+}
+findEven(8).then(console.log).catch(console.log);
+
+// 9
+const p1 = new Promise(resolve =>
+    setTimeout(() => resolve("One second"), 1000));
+const p2 = new Promise(resolve =>
+    setTimeout(() => resolve("Two seconds"), 2000));
+const p3 = new Promise(resolve =>
+    setTimeout(() => resolve("Three seconds"), 3000));
+
+Promise.all([p1, p2, p3]).then(console.log);
+
+// 10. 
+const r1 = new Promise(resolve =>
+    setTimeout(() => resolve("Promise 1 completed"), 2000));
+const r2 = new Promise((resolve, reject) =>
+    setTimeout(() => reject("Promise 2 rejected first"), 1000));
+const r3 = new Promise(resolve =>
+    setTimeout(() => resolve("Promise 3 completed"), 3000));
+
+Promise.race([r1, r2, r3]).then(console.log).catch(console.log);
+
+// Task 1.
+async function basicAsync() {
+    await new Promise(resolve => setTimeout(resolve, 2000));
+    console.log("Message after 2 seconds");
+}
+basicAsync();
+
+// Task 2.
+function getUser() {
+    return new Promise(resolve => {
+        setTimeout(() => {
+            resolve({
+                id: 1,
+                name: "Rahul",
+                email: "rahul@gmail.com"
+            });
+        }, 1500);
+    });
+}
+
+async function showUser() {
+    const user = await getUser();
+    console.log("User Name:", user.name);
+    console.log("Email:", user.email);
+}
+showUser();
+
+// Task 3
+async function loginUser(isLoggedIn) {
+    if (isLoggedIn) {
+        return "Login successful";
+    }
+    throw new Error("Invalid credentials");
+}
+
+async function checkLogin() {
+    try {
+        console.log(await loginUser(true));
+    } catch (error) {
+        console.log(error.message);
+    }
+}
+checkLogin();
+
+// Task 4
+function delay(message) {
+    return new Promise(resolve => {
+        setTimeout(() => resolve(message), 1000);
+    });
+}
+
+async function orderProcess() {
+    console.log(await delay("Order received"));
+    console.log(await delay("Order processed"));
+    console.log(await delay("Order delivered"));
+}
+orderProcess();
+
+// Task 5
+async function loadProducts() {
+    console.log("Loading products...");
+
+    await new Promise(resolve => setTimeout(resolve, 2000));
+
+    const products = ["Laptop", "Mobile", "Tablet"];
+    console.log(products);
+}
+loadProducts();
+
+</script>
+</body>
+</html>

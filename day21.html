@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Day 21 JS Loops Assignment</title>
+</head>
+<body>
+
+<script>
+
+//  Factorial of a given number
+function factorial(n) {
+    let fact = 1;
+
+    for (let i = 1; i <= n; i++) {
+        fact = fact * i;
+    }
+
+    return fact;
+}
+
+console.log("12. Factorial =", factorial(5));
+
+
+//  Find whether a given number is Prime or Not
+function checkPrime(n) {
+    let count = 0;
+    let i = 1;
+
+    while (i <= n) {
+        if (n % i == 0) {
+            count++;
+        }
+        i++;
+    }
+
+    if (count == 2) {
+        return "Prime Number";
+    } else {
+        return "Not a Prime Number";
+    }
+}
+
+console.log("13.", checkPrime(13));
+
+
+//  Print Prime Number Series
+function primeSeries(limit) {
+
+    for (let n = 2; n <= limit; n++) {
+
+        let count = 0;
+
+        for (let i = 1; i <= n; i++) {
+            if (n % i == 0) {
+                count++;
+            }
+        }
+
+        if (count == 2) {
+            console.log(n);
+        }
+    }
+}
+
+console.log("14. Prime Number Series:");
+primeSeries(50);
+
+
+//  Find whether a given number is Armstrong or Not
+function checkArmstrong(n) {
+
+    let original = n;
+    let temp = n;
+    let sum = 0;
+    let digits = 0;
+
+    while (temp > 0) {
+        digits++;
+        temp = Math.floor(temp / 10);
+    }
+
+    temp = n;
+
+    do {
+        let digit = temp % 10;
+        sum = sum + Math.pow(digit, digits);
+        temp = Math.floor(temp / 10);
+    } while (temp > 0);
+
+    if (sum == original) {
+        return "Armstrong Number";
+    } else {
+        return "Not an Armstrong Number";
+    }
+}
+
+console.log("15.", checkArmstrong(153));
+
+
+//  Print Armstrong Number Series
+function armstrongSeries(limit) {
+
+    for (let n = 1; n <= limit; n++) {
+
+        let temp = n;
+        let original = n;
+        let digits = 0;
+        let sum = 0;
+
+        while (temp > 0) {
+            digits++;
+            temp = Math.floor(temp / 10);
+        }
+
+        temp = n;
+
+        do {
+            let digit = temp % 10;
+            sum = sum + Math.pow(digit, digits);
+            temp = Math.floor(temp / 10);
+        } while (temp > 0);
+
+        if (sum == original) {
+            console.log(n);
+        }
+    }
+}
+
+console.log("16. Armstrong Number Series:");
+armstrongSeries(500);
+
+
+//  Fibonacci Series
+function fibonacci(n) {
+
+    let first = 0;
+    let second = 1;
+    let count = 1;
+
+    while (count <= n) {
+
+        console.log(first);
+
+        let next = first + second;
+        first = second;
+        second = next;
+
+        count++;
+    }
+}
+
+console.log("17. Fibonacci Series:");
+fibonacci(10);
+
+
+//  Print 5 Table
+function tableOfFive() {
+
+    let i = 1;
+
+    do {
+        console.log("5 x " + i + " = " + (5 * i));
+        i++;
+    } while (i <= 10);
+}
+
+console.log("18. Table of 5:");
+tableOfFive();
+
+
+//  Sum of Digits
+function sumOfDigits(n) {
+
+    let sum = 0;
+
+    while (n > 0) {
+        let digit = n % 10;
+        sum = sum + digit;
+        n = Math.floor(n / 10);
+    }
+
+    return sum;
+}
+
+console.log("19. Sum of Digits =", sumOfDigits(12345));
+
+
+//  Palindrome or Not
+function checkPalindrome(word) {
+
+    let reverse = "";
+
+    for (let i = word.length - 1; i >= 0; i--) {
+        reverse = reverse + word[i];
+    }
+
+    if (word.toLowerCase() == reverse.toLowerCase()) {
+        return "Palindrome";
+    } else {
+        return "Not a Palindrome";
+    }
+}
+
+console.log("20. BAB =", checkPalindrome("BAB"));
+console.log("20. MALAYALAM =", checkPalindrome("MALAYALAM"));
+console.log("20. MADAM =", checkPalindrome("MADAM"));
+
+</script>
+
+</body>
+</html>
