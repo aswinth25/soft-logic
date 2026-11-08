@@ -75,11 +75,6 @@ ALTER TABLE Employee RENAME COLUMN city TO location;
 ALTER TABLE Product MODIFY product_name VARCHAR(100);
 
 RENAME TABLE Staff TO Staff_Details;
-
-
--- DML OPERATIONS
-
-
 -- EMPLOYEE
 
 INSERT INTO Employee VALUES
